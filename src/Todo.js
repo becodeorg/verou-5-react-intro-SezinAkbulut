@@ -6,7 +6,7 @@ const todoStyle = {
   listStyleType: "none",
 };
 
-const Todo = () => {
+const Todo = ({ todos: todosProp }) => {
   const initialTodos = [
     { text: "My first todo", done: false },
     { text: "My second todo", done: false },
@@ -23,7 +23,7 @@ const Todo = () => {
     <div>
       <h1>Todo's</h1>
       <ul style={todoStyle}>
-        {todos.map((todo, index) => (
+        {todosProp.map((todo, index) => (
           <li key={index}>
             <label>
               <input
