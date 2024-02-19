@@ -1,6 +1,6 @@
 import React from "react";
 
-function Page() {
+function Form() {
   return (
     <div>
       <input placeholder="Type a new todo..."></input>
@@ -12,4 +12,4 @@ function Page() {
   );
 }
 
-export default Page;
+export default Form;
