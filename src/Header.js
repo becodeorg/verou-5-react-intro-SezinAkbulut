@@ -1,7 +1,7 @@
 import React from "react";
 
 const headerStyle = {
-  fontSize: "24px",
+  fontSize: "44px",
   backgroundColor: "#B5C0D0",
   padding: "10px",
 };
