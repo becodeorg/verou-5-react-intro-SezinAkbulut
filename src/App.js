@@ -32,6 +32,11 @@ function App() {
     newTodos[index].done = !newTodos[index].done;
     setTodos(newTodos);
   };
+  const handleEditTodo = (index, newText) => {
+    const newTodos = [...todos];
+    newTodos[index].text = newText;
+    setTodos(newTodos);
+  };
 
   useEffect(() => {
     console.log("useEffect triggered");
@@ -53,6 +58,7 @@ function App() {
               <Todo
                 todos={todos}
                 handleCheckboxChange={(index) => handleCheckboxChange(index)}
+                handleEditTodo={handleEditTodo}
               />
               {console.log("Testing")}
             </>

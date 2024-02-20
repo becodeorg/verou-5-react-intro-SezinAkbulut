@@ -1,32 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 
-const todoStyle = {
-  fontSize: "24px",
-  padding: "10px",
-  listStyleType: "none",
-  textAlign: "center",
-};
+export default function Todo({ todos, handleCheckboxChange, handleEditTodo }) {
+  const [editIndex, setEditIndex] = useState(null);
 
-const Todo = ({ todos, handleCheckboxChange }) => {
+  const handleDoubleClick = (index) => {
+    setEditIndex(index);
+  };
+
+  const handleEditInputChange = (event, index) => {
+    handleEditTodo(index, event.target.value);
+  };
+
+  const handleEditInputBlur = () => {
+    setEditIndex(null);
+  };
+
   return (
-    <div>
-      <h1>Todo's</h1>
-      <ul style={todoStyle}>
-        {todos.map((todo, index) => (
-          <li key={index}>
-            <label>
-              <input
-                type="checkbox"
-                checked={todo.done}
-                onChange={() => handleCheckboxChange(index)}
-              />{" "}
+    <ul>
+      {todos.map((todo, index) => (
+        <li key={index}>
+          <input
+            type="checkbox"
+            checked={todo.done}
+            onChange={() => handleCheckboxChange(index)}
+          />
+          {editIndex === index ? (
+            <input
+              type="text"
+              value={todo.text}
+              onChange={(e) => handleEditInputChange(e, index)}
+              onBlur={handleEditInputBlur}
+              autoFocus
+            />
+          ) : (
+            <span onDoubleClick={() => handleDoubleClick(index)}>
               {todo.text}
-            </label>
-          </li>
-        ))}
-      </ul>
-    </div>
+            </span>
+          )}
+        </li>
+      ))}
+    </ul>
   );
-};
-
-export default Todo;
+}
