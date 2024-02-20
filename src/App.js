@@ -21,7 +21,7 @@ function App() {
   };
 
   const clearCompleted = () => {
-    const newTodos = todos.filter((todo) => !todo.completed);
+    const newTodos = todos.filter((todo) => !todo.done);
     setTodos(newTodos);
   };
 
@@ -32,6 +32,8 @@ function App() {
   };
 
   useEffect(() => {
+    console.log("useEffect triggered");
+    console.log("Current todos:", todos);
     window.localStorage.setItem(LSKEY + ".todos", JSON.stringify(todos));
   }, [todos]);
 

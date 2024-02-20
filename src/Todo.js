@@ -16,7 +16,7 @@ const Todo = ({ todos, handleCheckboxChange }) => {
             <label>
               <input
                 type="checkbox"
-                checked={todo.completed}
+                checked={todo.done}
                 onChange={() => handleCheckboxChange(index)}
               />{" "}
               {todo.text}
