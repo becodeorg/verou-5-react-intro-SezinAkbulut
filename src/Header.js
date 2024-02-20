@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const headerStyle = {
   fontSize: "44px",
@@ -8,12 +9,22 @@ const headerStyle = {
   padding: "10px",
 };
 
-function Header() {
+const Header = () => {
   return (
     <div style={headerStyle}>
       <h1>My Todo App</h1>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/calendar">Calendar</Link>
+          </li>
+        </ul>
+      </nav>
     </div>
   );
-}
+};
 
 export default Header;

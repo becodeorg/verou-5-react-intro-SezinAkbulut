@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import { v4 as uuidv4 } from "uuid";
 import Header from "./Header";
 import Form from "./Form";
 import Todo from "./Todo";
+import Calendar from "./Calendar";
 
 const LSKEY = "MyTodoApp";
 
@@ -38,16 +40,27 @@ function App() {
   }, [todos]);
 
   return (
-    <div>
+    <>
       <Header />
-      <br />
-      <Form onAddTodo={addTodo} onClearCompleted={clearCompleted} />
-      <Todo
-        todos={todos}
-        handleCheckboxChange={(index) => handleCheckboxChange(index)}
-      />
-      {console.log("Testing")}
-    </div>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              {/* Home page */}
+              <br />
+              <Form onAddTodo={addTodo} onClearCompleted={clearCompleted} />
+              <Todo
+                todos={todos}
+                handleCheckboxChange={(index) => handleCheckboxChange(index)}
+              />
+              {console.log("Testing")}
+            </>
+          }
+        />
+        <Route path="/calendar" element={<Calendar />} />
+      </Routes>
+    </>
   );
 }
 
