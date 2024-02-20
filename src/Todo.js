@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 const todoStyle = {
   fontSize: "24px",
@@ -6,29 +6,17 @@ const todoStyle = {
   listStyleType: "none",
 };
 
-const Todo = ({ todos: todosProp }) => {
-  const initialTodos = [
-    { text: "My first todo", done: false },
-    { text: "My second todo", done: false },
-  ];
-  const [todos, setTodos] = useState(initialTodos);
-
-  const handleCheckboxChange = (index) => {
-    const newTodos = [...todos];
-    newTodos[index].done = !newTodos[index].done;
-    setTodos(newTodos);
-  };
-
+const Todo = ({ todos, handleCheckboxChange }) => {
   return (
     <div>
       <h1>Todo's</h1>
       <ul style={todoStyle}>
-        {todosProp.map((todo, index) => (
+        {todos.map((todo, index) => (
           <li key={index}>
             <label>
               <input
                 type="checkbox"
-                checked={todo.done}
+                checked={todo.completed}
                 onChange={() => handleCheckboxChange(index)}
               />{" "}
               {todo.text}

@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 
-export default function Form({ onAddTodo }) {
+export default function Form({ onAddTodo, onClearCompleted }) {
   const inputRef = useRef();
 
   function clickHandler() {
@@ -12,11 +12,16 @@ export default function Form({ onAddTodo }) {
     inputElement.value = "";
   }
 
+  function clearCompletedHandler() {
+    onClearCompleted();
+  }
+
   return (
     <div>
       <input ref={inputRef} type="text" placeholder="Write a new todo" />
       <br />
       <button onClick={clickHandler}>Add todo</button>
+      <button onClick={clearCompletedHandler}>Clear Completed</button>
     </div>
   );
 }
