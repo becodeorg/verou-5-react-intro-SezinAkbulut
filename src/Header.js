@@ -3,7 +3,8 @@ import React from "react";
 const headerStyle = {
   fontSize: "44px",
   backgroundColor: "#5F8670",
-
+  textAlign: "center",
+  marginBottom: "20px",
   padding: "10px",
 };
 

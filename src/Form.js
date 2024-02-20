@@ -17,10 +17,11 @@ export default function Form({ onAddTodo, onClearCompleted }) {
   }
 
   return (
-    <div>
+    <div style={{ textAlign: "center" }}>
       <input ref={inputRef} type="text" placeholder="Write a new todo" />
-      <br />
-      <button onClick={clickHandler}>Add todo</button>
+      <button style={{ margin: "2rem" }} onClick={clickHandler}>
+        Add todo
+      </button>
       <button onClick={clearCompletedHandler}>Clear Completed</button>
     </div>
   );

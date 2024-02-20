@@ -4,6 +4,7 @@ const todoStyle = {
   fontSize: "24px",
   padding: "10px",
   listStyleType: "none",
+  textAlign: "center",
 };
 
 const Todo = ({ todos, handleCheckboxChange }) => {
