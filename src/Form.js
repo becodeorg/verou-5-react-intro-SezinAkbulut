@@ -7,14 +7,9 @@ export default function Form({ onAddTodo, onClearCompleted }) {
 
   function clickHandler() {
     const inputElement = inputRef.current;
-    const newTodo = {
-      text: inputElement.value,
-      done: false,
-      fromDate,
-      toDate,
-    };
+    const newTodo = { text: inputElement.value, done: false };
 
-    onAddTodo(newTodo);
+    onAddTodo(newTodo, fromDate, toDate);
 
     inputElement.value = "";
     setFromDate("");
@@ -35,18 +30,17 @@ export default function Form({ onAddTodo, onClearCompleted }) {
         margin: "1rem",
       }}
     >
-      <div>
-        <label style={{ marginRight: "0.5rem" }}>Add to the list</label>
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <label style={{ marginBottom: "0.5rem" }}>Add to the list</label>
         <input
           ref={inputRef}
           type="text"
           placeholder="Write a new todo"
-          style={{ marginRight: "0.5rem" }}
+          style={{ marginBottom: "0.5rem" }}
         />
       </div>
-
-      <div>
-        <label style={{ marginRight: "0.5rem" }}>
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <label style={{ marginBottom: "0.5rem" }}>
           From:
           <input
             type="date"
@@ -56,9 +50,8 @@ export default function Form({ onAddTodo, onClearCompleted }) {
           />
         </label>
       </div>
-
-      <div>
-        <label style={{ marginRight: "0.5rem" }}>
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <label style={{ marginBottom: "0.5rem" }}>
           To:
           <input
             type="date"
@@ -68,7 +61,6 @@ export default function Form({ onAddTodo, onClearCompleted }) {
           />
         </label>
       </div>
-
       <button style={{ margin: "0.5rem 0 0 0.5rem" }} onClick={clickHandler}>
         Add
       </button>

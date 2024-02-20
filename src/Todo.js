@@ -16,29 +16,31 @@ export default function Todo({ todos, handleCheckboxChange, handleEditTodo }) {
   };
 
   return (
-    <ul>
-      {todos.map((todo, index) => (
-        <li key={index}>
-          <input
-            type="checkbox"
-            checked={todo.done}
-            onChange={() => handleCheckboxChange(index)}
-          />
-          {editIndex === index ? (
+    <div style={{ textAlign: "left" }}>
+      <ul style={{ listStyleType: "none", padding: 0 }}>
+        {todos.map((todo, index) => (
+          <li key={index}>
             <input
-              type="text"
-              value={todo.text}
-              onChange={(e) => handleEditInputChange(e, index)}
-              onBlur={handleEditInputBlur}
-              autoFocus
+              type="checkbox"
+              checked={todo.done}
+              onChange={() => handleCheckboxChange(index)}
             />
-          ) : (
-            <span onDoubleClick={() => handleDoubleClick(index)}>
-              {todo.text}
-            </span>
-          )}
-        </li>
-      ))}
-    </ul>
+            {editIndex === index ? (
+              <input
+                type="text"
+                value={todo.text}
+                onChange={(e) => handleEditInputChange(e, index)}
+                onBlur={handleEditInputBlur}
+                autoFocus
+              />
+            ) : (
+              <span onDoubleClick={() => handleDoubleClick(index)}>
+                {todo.text}
+              </span>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }

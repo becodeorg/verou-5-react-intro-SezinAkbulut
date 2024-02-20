@@ -10,7 +10,7 @@ const headerStyle = {
 
 const Header = () => {
   return (
-    <div style={headerStyle}>
+    <header style={headerStyle}>
       <h1>My Todo App</h1>
       <nav>
         <ul>
@@ -22,7 +22,7 @@ const Header = () => {
           </li>
         </ul>
       </nav>
-    </div>
+    </header>
   );
 };
 

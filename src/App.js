@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import Header from "./Header";
 import Form from "./Form";
 import Todo from "./Todo";
-import Calendar from "./Calendar";
+import CalendarComponent from "./CalendarComponent";
 
 const LSKEY = "MyTodoApp";
 
@@ -18,8 +18,8 @@ function App() {
   ];
   const [todos, setTodos] = useState(initialTodos);
 
-  const addTodo = (newTodo) => {
-    setTodos([...todos, { id: uuidv4(), ...newTodo }]);
+  const addTodo = (newTodo, fromDate, toDate) => {
+    setTodos([...todos, { id: uuidv4(), ...newTodo, fromDate, toDate }]);
   };
 
   const clearCompleted = () => {
@@ -64,7 +64,7 @@ function App() {
             </>
           }
         />
-        <Route path="/calendar" element={<Calendar />} />
+        <Route path="/calendar" element={<CalendarComponent todos={todos} />} />
       </Routes>
     </>
   );
