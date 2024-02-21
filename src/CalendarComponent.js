@@ -12,6 +12,8 @@ const CalendarComponent = ({ todos }) => {
     end: new Date(todo.toDate),
   }));
 
+  console.log(events);
+
   return (
     <div>
       <h1>Calendar</h1>

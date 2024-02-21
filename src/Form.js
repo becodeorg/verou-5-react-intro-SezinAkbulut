@@ -1,4 +1,6 @@
 import React, { useRef, useState } from "react";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
 
 export default function Form({ onAddTodo, onClearCompleted }) {
   const inputRef = useRef();
@@ -31,45 +33,62 @@ export default function Form({ onAddTodo, onClearCompleted }) {
       }}
     >
       <div style={{ display: "flex", flexDirection: "column" }}>
-        <label style={{ marginBottom: "0.5rem" }}>Add to the list</label>
-        <input
-          ref={inputRef}
+        <TextField
+          inputRef={inputRef}
           type="text"
-          placeholder="Write a new todo"
-          style={{ marginBottom: "0.5rem" }}
+          id="outlined-basic"
+          label="Write a todo"
+          variant="outlined"
+          style={{
+            marginTop: "1.5rem",
+            backgroundColor: "white",
+          }}
         />
       </div>
       <div style={{ display: "flex", flexDirection: "column" }}>
-        <label style={{ marginBottom: "0.5rem" }}>
+        <label>
+          {" "}
           From:
-          <input
+          <TextField
             type="date"
             value={fromDate}
             onChange={(e) => setFromDate(e.target.value)}
-            style={{ marginLeft: "0.5rem" }}
+            variant="outlined"
+            style={{ marginLeft: "0.5rem", backgroundColor: "white" }}
           />
         </label>
       </div>
       <div style={{ display: "flex", flexDirection: "column" }}>
-        <label style={{ marginBottom: "0.5rem" }}>
+        <label>
+          {" "}
           To:
-          <input
+          <TextField
             type="date"
             value={toDate}
             onChange={(e) => setToDate(e.target.value)}
-            style={{ marginLeft: "0.5rem" }}
+            variant="outlined"
+            style={{ marginLeft: "0.5rem", backgroundColor: "white" }}
           />
         </label>
       </div>
-      <button style={{ margin: "0.5rem 0 0 0.5rem" }} onClick={clickHandler}>
+      <Button
+        variant="contained"
+        color="primary"
+        fontSize="large"
+        style={{ margin: "1.5rem 0 0 1rem" }}
+        onClick={clickHandler}
+      >
         Add
-      </button>
-      <button
-        style={{ margin: "0.5rem 0 0 0.5rem" }}
+      </Button>
+      <Button
+        variant="contained"
+        color="secondary"
+        style={{ margin: "1.5rem 0 0 1rem" }}
+        fontSize="large"
         onClick={clearCompletedHandler}
       >
-        Clear Completed todo's
-      </button>
+        Clear
+      </Button>
     </div>
   );
 }

@@ -1,4 +1,11 @@
 import React, { useState } from "react";
+import Checkbox from "@mui/material/Checkbox";
+import Input from "@mui/material/Input";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Box from "@mui/material/Box";
 
 export default function Todo({ todos, handleCheckboxChange, handleEditTodo }) {
   const [editIndex, setEditIndex] = useState(null);
@@ -17,30 +24,46 @@ export default function Todo({ todos, handleCheckboxChange, handleEditTodo }) {
 
   return (
     <div style={{ textAlign: "left" }}>
-      <ul style={{ listStyleType: "none", padding: 0 }}>
+      <List style={{ listStyleType: "none", padding: 0 }}>
         {todos.map((todo, index) => (
-          <li key={index}>
-            <input
-              type="checkbox"
-              checked={todo.done}
-              onChange={() => handleCheckboxChange(index)}
-            />
-            {editIndex === index ? (
-              <input
-                type="text"
-                value={todo.text}
-                onChange={(e) => handleEditInputChange(e, index)}
-                onBlur={handleEditInputBlur}
-                autoFocus
+          <Box
+            sx={{
+              backgroundColor: "rgba(169, 169, 169, 0.3)",
+              borderRadius: "5px",
+              padding: "5px",
+              display: "flex",
+              alignItems: "center",
+              margin: "1rem",
+            }}
+          >
+            <ListItem key={index}>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={todo.done}
+                    onChange={() => handleCheckboxChange(index)}
+                  />
+                }
+                label={
+                  editIndex === index ? (
+                    <Input
+                      type="text"
+                      value={todo.text}
+                      onChange={(e) => handleEditInputChange(e, index)}
+                      onBlur={handleEditInputBlur}
+                      autoFocus
+                    />
+                  ) : (
+                    <span onDoubleClick={() => handleDoubleClick(index)}>
+                      {todo.text}
+                    </span>
+                  )
+                }
               />
-            ) : (
-              <span onDoubleClick={() => handleDoubleClick(index)}>
-                {todo.text}
-              </span>
-            )}
-          </li>
+            </ListItem>
+          </Box>
         ))}
-      </ul>
+      </List>
     </div>
   );
 }

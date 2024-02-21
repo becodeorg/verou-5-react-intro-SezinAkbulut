@@ -6,6 +6,7 @@ import Header from "./Header";
 import Form from "./Form";
 import Todo from "./Todo";
 import CalendarComponent from "./CalendarComponent";
+import Box from "@mui/material/Box";
 
 const LSKEY = "MyTodoApp";
 
@@ -46,26 +47,39 @@ function App() {
 
   return (
     <>
-      <Header />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              {/* Home page */}
-              <br />
-              <Form onAddTodo={addTodo} onClearCompleted={clearCompleted} />
-              <Todo
-                todos={todos}
-                handleCheckboxChange={(index) => handleCheckboxChange(index)}
-                handleEditTodo={handleEditTodo}
-              />
-              {console.log("Testing")}
-            </>
-          }
-        />
-        <Route path="/calendar" element={<CalendarComponent todos={todos} />} />
-      </Routes>
+      <Box
+        sx={{
+          backgroundColor: "rgba(169, 169, 169, 0.3)",
+          borderRadius: "5px",
+          padding: "7px",
+          alignItems: "center",
+          margin: "1rem",
+        }}
+      >
+        <Header />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                {/* Home page */}
+                <br />
+                <Form onAddTodo={addTodo} onClearCompleted={clearCompleted} />
+                <Todo
+                  todos={todos}
+                  handleCheckboxChange={(index) => handleCheckboxChange(index)}
+                  handleEditTodo={handleEditTodo}
+                />
+                {console.log("Testing")}
+              </>
+            }
+          />
+          <Route
+            path="/calendar"
+            element={<CalendarComponent todos={todos} />}
+          />
+        </Routes>
+      </Box>
     </>
   );
 }

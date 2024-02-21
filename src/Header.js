@@ -1,28 +1,64 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
+import Breadcrumbs from "@mui/material/Breadcrumbs";
+import MuiLink from "@mui/material/Link";
+import HomeIcon from "@mui/icons-material/Home";
+import EventIcon from "@mui/icons-material/Event";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import Box from "@mui/material/Box";
 
-const headerStyle = {
-  fontSize: "44px",
-  backgroundColor: "#5F8670",
-  marginBottom: "20px",
-  padding: "10px",
+const iconStyle = {
+  fontSize: "24px",
+  color: "#fff",
 };
 
 const Header = () => {
   return (
-    <header style={headerStyle}>
-      <h1>My Todo App</h1>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/calendar">Calendar</Link>
-          </li>
-        </ul>
-      </nav>
-    </header>
+    <Breadcrumbs separator="›" aria-label="breadcrumb">
+      <Box
+        sx={{
+          backgroundColor: "rgba(169, 169, 169, 0.3)",
+          borderRadius: "5px",
+          padding: "8px",
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        <MuiLink
+          component={RouterLink}
+          to="/"
+          color="inherit"
+          fontSize={"large"}
+        >
+          <ListItemIcon sx={{ marginLeft: "12px", maxWidth: "20px" }}>
+            <HomeIcon style={iconStyle} />
+          </ListItemIcon>
+          Home
+        </MuiLink>
+      </Box>
+
+      <Box
+        sx={{
+          backgroundColor: "rgba(169, 169, 169, 0.3)",
+          borderRadius: "5px",
+          padding: "8px",
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        <MuiLink
+          component={RouterLink}
+          to="/calendar"
+          color="inherit"
+          fontSize={"large"}
+        >
+          <ListItemIcon sx={{ marginLeft: "12px", maxWidth: "20px" }}>
+            <EventIcon style={iconStyle} />
+          </ListItemIcon>
+          Calendar
+        </MuiLink>
+      </Box>
+    </Breadcrumbs>
   );
 };
 
