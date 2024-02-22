@@ -3,13 +3,18 @@ import Checkbox from "@mui/material/Checkbox";
 import Input from "@mui/material/Input";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import IconButton from "@mui/material/IconButton";
 import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
 import Box from "@mui/material/Box";
 
-export default function Todo({ todos, handleCheckboxChange, handleEditTodo }) {
+export default function Todo({
+  todos,
+  handleCheckboxChange,
+  handleEditTodo,
+  handleDeleteTodo,
+}) {
   const [editIndex, setEditIndex] = useState(null);
 
   const handleDoubleClick = (index) => {
@@ -68,6 +73,12 @@ export default function Todo({ todos, handleCheckboxChange, handleEditTodo }) {
                 style={{ marginLeft: "auto" }}
               >
                 <EditIcon />
+              </IconButton>
+              <IconButton
+                onClick={() => handleDeleteTodo(index)}
+                style={{ marginLeft: "8px" }}
+              >
+                <DeleteIcon />
               </IconButton>
             </ListItem>
           </Box>

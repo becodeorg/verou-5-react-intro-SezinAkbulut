@@ -39,6 +39,11 @@ function App() {
     setTodos(newTodos);
   };
 
+  const handleDeleteTodo = (index) => {
+    const newTodos = todos.filter((todo, i) => i !== index);
+    setTodos(newTodos);
+  };
+
   useEffect(() => {
     console.log("useEffect triggered");
     console.log("Current todos:", todos);
@@ -70,6 +75,7 @@ function App() {
                   todos={todos}
                   handleCheckboxChange={(index) => handleCheckboxChange(index)}
                   handleEditTodo={handleEditTodo}
+                  handleDeleteTodo={handleDeleteTodo}
                 />
                 {console.log("Testing")}
               </>
