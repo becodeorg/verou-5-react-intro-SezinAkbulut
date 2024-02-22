@@ -27,6 +27,7 @@ const linkStyle = {
   color: "white",
   fontSize: "large",
   marginRight: "1rem",
+  textDecoration: "none",
 };
 
 const Header = () => {
@@ -52,6 +53,7 @@ const Header = () => {
               alignItems: "center",
               color: "white",
               margin: "0",
+              border: "#FF61C0 1px solid",
             }}
           >
             <MuiLink
@@ -77,6 +79,7 @@ const Header = () => {
               alignItems: "center",
               color: "white",
               margin: "0",
+              border: "#FF61C0 1px solid",
             }}
           >
             <MuiLink

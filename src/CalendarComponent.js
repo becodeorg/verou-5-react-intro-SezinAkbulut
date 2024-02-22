@@ -6,7 +6,6 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 const localizer = momentLocalizer(moment);
 
 const CalendarComponent = ({ todos }) => {
-  <Calendar localizer={localizer} style={{ height: 500 }} />;
   const events = todos.map((todo) => ({
     title: todo.text,
     start: new Date(todo.fromDate),
@@ -25,8 +24,8 @@ const CalendarComponent = ({ todos }) => {
         events={events}
         style={{
           height: "70vh",
-
-          backgroundColor: "#9A6AC0",
+          color: "white",
+          backgroundColor: "#5E4F8A",
           width: "100%",
           whiteSpace: "nowrap",
         }}
