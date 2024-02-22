@@ -37,7 +37,7 @@ export default function Todo({
             key={index}
             sx={{
               backgroundColor: "rgba(169, 169, 169, 0.3)",
-              borderRadius: "5px",
+              borderRadius: "25px",
               padding: "5px",
               display: "flex",
               alignItems: "center",
@@ -70,13 +70,13 @@ export default function Todo({
               />
               <IconButton
                 onClick={() => handleDoubleClick(index)}
-                style={{ marginLeft: "auto" }}
+                style={{ marginLeft: "auto", color: "lightblue" }}
               >
                 <EditIcon />
               </IconButton>
               <IconButton
                 onClick={() => handleDeleteTodo(index)}
-                style={{ marginLeft: "8px" }}
+                style={{ marginLeft: "8px", color: "darkred" }}
               >
                 <DeleteIcon />
               </IconButton>
