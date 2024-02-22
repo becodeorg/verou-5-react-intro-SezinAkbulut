@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 
-export default function Form({ onAddTodo, onClearCompleted }) {
+export default function Form({ onAddTodo }) {
   const inputRef = useRef();
   const [fromDate, setFromDate] = useState("");
   const [toDate, setToDate] = useState("");
@@ -16,10 +16,6 @@ export default function Form({ onAddTodo, onClearCompleted }) {
     inputElement.value = "";
     setFromDate("");
     setToDate("");
-  }
-
-  function clearCompletedHandler() {
-    onClearCompleted();
   }
 
   return (
@@ -80,15 +76,6 @@ export default function Form({ onAddTodo, onClearCompleted }) {
           onClick={clickHandler}
         >
           Add
-        </Button>
-        <Button
-          variant="contained"
-          color="secondary"
-          style={{ margin: "1.5rem 0 0 1rem" }}
-          fontSize="large"
-          onClick={clearCompletedHandler}
-        >
-          Clear
         </Button>
       </div>
     </div>

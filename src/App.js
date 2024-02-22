@@ -23,11 +23,6 @@ function App() {
     setTodos([...todos, { id: uuidv4(), ...newTodo, fromDate, toDate }]);
   };
 
-  const clearCompleted = () => {
-    const newTodos = todos.filter((todo) => !todo.done);
-    setTodos(newTodos);
-  };
-
   const handleCheckboxChange = (index) => {
     const newTodos = [...todos];
     newTodos[index].done = !newTodos[index].done;
@@ -70,7 +65,7 @@ function App() {
               <>
                 {/* Home page */}
                 <br />
-                <Form onAddTodo={addTodo} onClearCompleted={clearCompleted} />
+                <Form onAddTodo={addTodo} />
                 <Todo
                   todos={todos}
                   handleCheckboxChange={(index) => handleCheckboxChange(index)}

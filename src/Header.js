@@ -10,8 +10,7 @@ import Box from "@mui/material/Box";
 const iconCommonStyle = {
   fontSize: "24px",
   color: "#fff",
-  marginLeft: "12px",
-  maxWidth: "20px",
+  marginLeft: "1rem",
 };
 
 const headerStyle = {
@@ -20,6 +19,14 @@ const headerStyle = {
   alignItems: "center",
   height: "10vh",
   marginTop: "2rem",
+};
+
+const linkStyle = {
+  display: "flex",
+  alignItems: "center",
+  color: "white",
+  fontSize: "large",
+  marginRight: "1rem",
 };
 
 const Header = () => {
@@ -39,11 +46,10 @@ const Header = () => {
           <Box
             sx={{
               backgroundColor: "rgba(169, 169, 169, 0.3)",
-              borderRadius: "10px",
+              borderRadius: "25px",
               padding: "8px",
               display: "flex",
               alignItems: "center",
-
               color: "white",
               margin: "0",
             }}
@@ -53,6 +59,7 @@ const Header = () => {
               to="/"
               color="inherit"
               fontSize={"large"}
+              sx={linkStyle}
             >
               <ListItemIcon sx={iconCommonStyle}>
                 <HomeIcon />
@@ -64,7 +71,7 @@ const Header = () => {
           <Box
             sx={{
               backgroundColor: "rgba(169, 169, 169, 0.3)",
-              borderRadius: "10px",
+              borderRadius: "25px",
               padding: "8px",
               display: "flex",
               alignItems: "center",
@@ -77,6 +84,7 @@ const Header = () => {
               to="/calendar"
               color="inherit"
               fontSize={"large"}
+              sx={linkStyle}
             >
               <ListItemIcon sx={iconCommonStyle}>
                 <EventIcon />
