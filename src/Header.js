@@ -7,58 +7,86 @@ import EventIcon from "@mui/icons-material/Event";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import Box from "@mui/material/Box";
 
-const iconStyle = {
+const iconCommonStyle = {
   fontSize: "24px",
   color: "#fff",
+  marginLeft: "12px",
+  maxWidth: "20px",
+};
+
+const headerStyle = {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  height: "10vh",
+  marginTop: "2rem",
 };
 
 const Header = () => {
   return (
-    <Breadcrumbs separator="›" aria-label="breadcrumb">
-      <Box
-        sx={{
-          backgroundColor: "rgba(169, 169, 169, 0.3)",
-          borderRadius: "5px",
-          padding: "8px",
-          display: "flex",
-          alignItems: "center",
+    <div>
+      <h1
+        style={{
+          color: "white",
+          fontSize: "44px",
         }}
       >
-        <MuiLink
-          component={RouterLink}
-          to="/"
-          color="inherit"
-          fontSize={"large"}
-        >
-          <ListItemIcon sx={{ marginLeft: "12px", maxWidth: "20px" }}>
-            <HomeIcon style={iconStyle} />
-          </ListItemIcon>
-          Home
-        </MuiLink>
-      </Box>
+        My Todo App
+      </h1>
 
-      <Box
-        sx={{
-          backgroundColor: "rgba(169, 169, 169, 0.3)",
-          borderRadius: "5px",
-          padding: "8px",
-          display: "flex",
-          alignItems: "center",
-        }}
-      >
-        <MuiLink
-          component={RouterLink}
-          to="/calendar"
-          color="inherit"
-          fontSize={"large"}
-        >
-          <ListItemIcon sx={{ marginLeft: "12px", maxWidth: "20px" }}>
-            <EventIcon style={iconStyle} />
-          </ListItemIcon>
-          Calendar
-        </MuiLink>
-      </Box>
-    </Breadcrumbs>
+      <div style={headerStyle}>
+        <Breadcrumbs separator="›" aria-label="breadcrumb">
+          <Box
+            sx={{
+              backgroundColor: "rgba(169, 169, 169, 0.3)",
+              borderRadius: "10px",
+              padding: "8px",
+              display: "flex",
+              alignItems: "center",
+
+              color: "white",
+              margin: "0",
+            }}
+          >
+            <MuiLink
+              component={RouterLink}
+              to="/"
+              color="inherit"
+              fontSize={"large"}
+            >
+              <ListItemIcon sx={iconCommonStyle}>
+                <HomeIcon />
+              </ListItemIcon>
+              All
+            </MuiLink>
+          </Box>
+
+          <Box
+            sx={{
+              backgroundColor: "rgba(169, 169, 169, 0.3)",
+              borderRadius: "10px",
+              padding: "8px",
+              display: "flex",
+              alignItems: "center",
+              color: "white",
+              margin: "0",
+            }}
+          >
+            <MuiLink
+              component={RouterLink}
+              to="/calendar"
+              color="inherit"
+              fontSize={"large"}
+            >
+              <ListItemIcon sx={iconCommonStyle}>
+                <EventIcon />
+              </ListItemIcon>
+              Calendar
+            </MuiLink>
+          </Box>
+        </Breadcrumbs>
+      </div>
+    </div>
   );
 };
 

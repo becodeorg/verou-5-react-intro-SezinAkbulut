@@ -25,7 +25,8 @@ const CalendarComponent = ({ todos }) => {
         events={events}
         style={{
           height: "70vh",
-          backgroundColor: "#5F8670",
+
+          backgroundColor: "#9A6AC0",
           width: "100%",
           whiteSpace: "nowrap",
         }}

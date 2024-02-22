@@ -5,6 +5,8 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import FormControlLabel from "@mui/material/FormControlLabel";
+import IconButton from "@mui/material/IconButton";
+import EditIcon from "@mui/icons-material/Edit";
 import Box from "@mui/material/Box";
 
 export default function Todo({ todos, handleCheckboxChange, handleEditTodo }) {
@@ -27,6 +29,7 @@ export default function Todo({ todos, handleCheckboxChange, handleEditTodo }) {
       <List style={{ listStyleType: "none", padding: 0 }}>
         {todos.map((todo, index) => (
           <Box
+            key={index}
             sx={{
               backgroundColor: "rgba(169, 169, 169, 0.3)",
               borderRadius: "5px",
@@ -36,7 +39,7 @@ export default function Todo({ todos, handleCheckboxChange, handleEditTodo }) {
               margin: "1rem",
             }}
           >
-            <ListItem key={index}>
+            <ListItem>
               <FormControlLabel
                 control={
                   <Checkbox
@@ -60,6 +63,12 @@ export default function Todo({ todos, handleCheckboxChange, handleEditTodo }) {
                   )
                 }
               />
+              <IconButton
+                onClick={() => handleDoubleClick(index)}
+                style={{ marginLeft: "auto" }}
+              >
+                <EditIcon />
+              </IconButton>
             </ListItem>
           </Box>
         ))}

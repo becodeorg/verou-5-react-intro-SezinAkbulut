@@ -49,7 +49,8 @@ function App() {
     <>
       <Box
         sx={{
-          backgroundColor: "rgba(169, 169, 169, 0.3)",
+          background:
+            "linear-gradient(151deg, rgba(2,0,36,1) 0%, rgba(27,10,49,1) 68%, rgba(147,0,255,0.758140756302521) 100%)",
           borderRadius: "5px",
           padding: "7px",
           alignItems: "center",
